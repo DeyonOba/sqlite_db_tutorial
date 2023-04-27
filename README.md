@@ -1,6 +1,6 @@
 # Sqlite Tutorial and Practice
 
-The aim of this project is to read practice the sqlite documentation with projects.
+The aim of this project is to read and practice the sqlite documentation with projects.
 
 ## Tutorial
 
@@ -11,5 +11,14 @@ The tutorial a database of Monty Python Movies would be created using basic sqli
 Fundamental concept need to successfully understand the project are the fundementals of cursors and transactions.
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Cursor_(databases)):
-> **Cursor (Databases)**
-A database cursor is a machanism that enables traversal over the records in a database. Cursors facilitate subsequent processing in conjunction with the traversal, such as retrieval, addition and removal of database records.
+**Cursor (Databases)**
+> A database cursor is a machanism that enables traversal over the records in a database. Cursors facilitate subsequent processing in conjunction with the traversal, such as retrieval, addition and removal of database records.
+
+**Usage**
+To use cursors in SQL procedure, you need to do the following:
+1. Declare a cursor that defines a result set.
+2. Open the cursor to establish the result set.
+3. Fetch the data in local variable as needed from the cursor, one row at a time.
+4. Close the cursor when done.
+
+
