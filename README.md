@@ -32,9 +32,30 @@ A transaction generally represents any change in a database.Transactions in a da
 
 Back to the sqlite tutorial from python documentation.
 
-The first thing we would need to do is create a database that is connected to sqlite3. To do that we call on `sqlite3.connect()` to create a connection to the database `tutoraial.db` which is found in our current working directory,implicitly creating the database if it does not exist.
+The first thing we would need to do is create a database that is connected to sqlite3. To do that we call on `sqlite3.connect()` to create a connection to the database `tutoraial.db` which is found in our current working directory, or it would implicitly create the database if it does not exist.
 
 ```python
 import sqlite3
 con = sqlite3. connect("tutorial.db")
 ```
+In order to execute SQL statements and fetch results from SQL queries, we will need to use a database cursor. Call `con.cursor()` to create the `Cursor`:
+
+```python
+cur = con.cursor()
+```
+
+With the two code blocks above we have successfully connected to sqlite3 and a cursor, now we can create a database table in `tutorial.db` called movie with columns for title, release year, and review score.
+
+```python
+cur.execute("CREATE TABLE movie(title, year, score)")
+```
+
+To verify if we created the new table by querying the `sqlite_master` table built-in to SQLite, which should now contain an entery for the `movie` table definition. We execute the query `cur.executer("query statement"), then assign the result to `res`, and call `res.fetchone()` to fetch the resulting row:
+
+```python
+res = cur.execute("SELECT name FROM sqlite_master")
+res.fetchone()
+```
+> output: ('movie',)
+
+If we query `sqlite_master` for a non-existent table `spam`, res.fetchone() is None.
